@@ -6,7 +6,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const JWT_SECRET = process.env.JWT_SECRET;
-// console.log(process.env);
 // Load User model
 const User = require('../../models/User');
 const db = require('../../models');
