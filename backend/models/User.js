@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 //User Schema
 const UserSchema = new Schema({
-    name: {
+    username: {
         type: String,
         required: true
     },
@@ -16,9 +16,17 @@ const UserSchema = new Schema({
         type: String, 
         required: true
     },
-    date: {
-        type: Date, 
-        default: Date.now()
+    volunteer: {
+        type: Boolean
+    },
+    phoneNumber: {
+        type: String
+    },
+    location: {
+        type: String
+    },
+    mood: {
+        type: Number
     }
 });
 

@@ -9,6 +9,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 // Load User model
 const User = require('../../models/User');
 const db = require('../../models');
+const { response } = require('express');
 
 // GET api/users/test (Public)
 router.get('/test', (req, res) => {
@@ -80,5 +81,14 @@ router.post('/login', (req, res) => {
     }
   });
 });
+
+
+router.get('/', (req, res) => {
+  db.User.find()
+  .then(user => {
+    res.send(user);
+  })
+})
+
 
 module.exports = router;
