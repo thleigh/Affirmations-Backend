@@ -47,6 +47,7 @@ router.post('/register', (req, res) => {
   })
 });
 
+// POST /api/users/login (Public)
 router.post('/login', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -91,6 +92,5 @@ router.get('/', (req, res) => {
     console.log(err);
   })
 })
-
 
 module.exports = router;
