@@ -11,28 +11,31 @@ The backend server for the Affirmations app
 | name | String | Must be provided |
 | email | String | Must be unique / used for login |
 | password | String | Stored as a hash |
-| date | Date | default as current date | ❓ maybe don't need
-| volunteer | Boolean | if user want to signup to be volunteer | 📍 checkbox
-| phone | String | phone number for volunteer | 📍
+| volunteer | Boolean | if user want to signup to be volunteer | 📍 checkbox click to show phonebox 
+| phone | String | phone number for volunteer | 📍required in frontend
 | lacation | String | user's location | 📍 
-| mood | Interger | user's mood | 📍 after login 
+| mood | Number | user's mood | 📍 when login 
 
 ### Affirmations Model 
 
 | Column Name | Data Type | Notes | Todo |
 | --------------- | ------------- | ------------------------------ | ------- |
-| quote | String | Content of the quote | 📍
-| quotId | Integer | Id of the quote | 📍
-| like | Array of objects | Array of users's object_id | 📍
-| comments | Array of Objects | {userId, userName, like} | 📍
+| quote | String | Content of the quote | 
+| quoteId | Number | Id of the quote | 📍
+| author | String | author of the quote | 
+| likes | Array of objects | {userId} | 📍
+| comments | Array of objects | {userId, likes} | 📍
 
 ## Routes
 
 | Method | Path | Location | Purpose | Todo |
 | ------ | ---------------- | -------------- | ------------------- | -------- |
-| GET | api/users/test (Public) | users.js | Postman testing |
-| POST | api/users/register (Public) | users.js | Signup form |
+| GET | api/users/test (Public) | users.js | Postman testing | 
+| POST | api/users/register (Public) | users.js | Signup form | 
 | POST | api/users/login (Public) | users.js | Login form |
+| GET | api/users | users.js | Postman get all users |
+| POST | api/affirmations | affirmation.js | Post a new quote |
+| PUT | - | users.js | Change username | 📍
 | POST | - | - | Add comment | 📍 GET/PUT/DELETE for commons??? 
 | POST | - | users.js | Add Mood | 📍 GET/PUT for mood?? 
 | GET | - | users.js | Get volunteers' phone number for resource page | 📍

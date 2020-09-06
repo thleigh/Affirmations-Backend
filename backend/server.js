@@ -6,7 +6,9 @@ const cors = require('cors');
 const port = process.env.PORT || 8000;
 const passport = require('passport');
 
-const users = require('./routes/api/users')
+const users = require('./routes/api/users');
+const affirmations = require('./routes/api/affirmations')
+const Affirmation = require('./models/Affirmation');
 
 // MIDDLEWARE
 app.use(cors());
@@ -24,8 +26,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/users', users)
+app.use('/api/affirmations', affirmations)
 
-app.use('/motivational', require('./routes/api/affirmations-scrape'))
+// app.use('/motivational', require('./routes/api/affirmations-scrape'))
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
