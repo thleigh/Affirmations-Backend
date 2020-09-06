@@ -9,7 +9,6 @@ const JWT_SECRET = process.env.JWT_SECRET;
 // Load User model
 const User = require('../../models/User');
 const db = require('../../models');
-const { response } = require('express');
 
 // GET api/users/test (Public)
 router.get('/test', (req, res) => {
@@ -28,7 +27,7 @@ router.post('/register', (req, res) => {
     } else {
       // Create a new user
       const newUser = new User({
-        name: req.body.name,
+        username: req.body.username,
         email: req.body.email,
         password: req.body.password
       });
@@ -66,7 +65,7 @@ router.post('/login', (req, res) => {
           // Create a token payload (you can include anything you want)
           const payload = {
             id: user.id,
-            name: user.name,
+            name: user.username,
             email: user.email
           };
 
@@ -82,11 +81,14 @@ router.post('/login', (req, res) => {
   });
 });
 
-
+// GET /api/users
 router.get('/', (req, res) => {
   db.User.find()
   .then(user => {
     res.send(user);
+  })
+  .catch(err => {
+    console.log(err);
   })
 })
 
