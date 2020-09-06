@@ -34,7 +34,13 @@ The backend server for the Affirmations app
 | POST | api/users/register (Public) | users.js | Signup form | 
 | POST | api/users/login (Public) | users.js | Login form |
 | GET | api/users | users.js | Postman get all users |
+|   |   |   |   |
 | POST | api/affirmations | affirmation.js | Post a new quote |
+| GET | api/affirmations | affirmations.js | Get all the quotes |
+| GET | api/affirmations/id | affirmations.js | Get a quote by id |
+| Delete | api/affirmations/id | affirmations.js | Delete a quote by id |
+| Put | api/affirmations/id | affirmations.js | Edit a quote by id |
+|   |   |   |   |
 | PUT | - | users.js | Change username | 📍
 | POST | - | - | Add comment | 📍 GET/PUT/DELETE for commons??? 
 | POST | - | users.js | Add Mood | 📍 GET/PUT for mood?? 

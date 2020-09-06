@@ -8,7 +8,6 @@ const passport = require('passport');
 
 const users = require('./routes/api/users');
 const affirmations = require('./routes/api/affirmations')
-const Affirmation = require('./models/Affirmation');
 
 // MIDDLEWARE
 app.use(cors());
