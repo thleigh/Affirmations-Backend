@@ -11,8 +11,8 @@ The backend server for the Affirmations app
 | name | String | Must be provided |
 | email | String | Must be unique / used for login |
 | password | String | Stored as a hash |
-| volunteer | Boolean | if user want to signup to be volunteer | 📍 checkbox click to show phonebox 
-| phone | String | phone number for volunteer | 📍required in frontend
+| volunteer | Boolean | if user want to signup to be volunteer |
+| phone | String | phone number for volunteer |
 | lacation | String | user's location | 📍 
 | mood | Number | user's mood | 📍 when login 
 
