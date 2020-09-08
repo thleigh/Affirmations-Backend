@@ -28,7 +28,7 @@ router.post('/register', (req, res) => {
       // Create a new user
       const newUser = new User({
         username: req.body.username,
-        email: req.body.email,
+        email: req.body.email.toLowerCase(),
         password: req.body.password,
         volunteer: req.body.volunteer,
         phoneNumber: req.body.phoneNumber
@@ -51,7 +51,7 @@ router.post('/register', (req, res) => {
 
 // POST /api/users/login (Public)
 router.post('/login', (req, res) => {
-  const email = req.body.email;
+  const email = req.body.email.toLowerCase();
   const password = req.body.password;
 
   // Find a user via email
@@ -69,7 +69,7 @@ router.post('/login', (req, res) => {
           const payload = {
             id: user.id,
             name: user.username,
-            email: user.email,
+            email: user.email.toLowerCase(),
             volunteer: user.volunteer,
             phoneNumber: user.phoneNumber
           };
