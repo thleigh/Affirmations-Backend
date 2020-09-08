@@ -59,6 +59,27 @@ router.put('/:id', (req, res) => {
         _id:req.params.id
     },
     req.body, // Grab everything in the body 
+    
+    {
+        new: true
+    })
+    .then(updatedAffirmation => {
+        res.send(updatedAffirmation)
+    })
+    .catch(err => console.log(err))
+})
+
+// PUT /api/affirmations/likes/id
+// Add a like
+router.put('/likes/:id', (req, res) => {
+    Affirmation.findOneAndUpdate({
+        _id:req.params.id
+    },
+    // req.body, // Grab everything in the body 
+    {
+        $push: {likes: req.body.likes}
+
+    },
     {
         new: true
     })
