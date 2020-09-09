@@ -49,6 +49,14 @@ router.post('/register', (req, res) => {
   })
 });
 
+router.delete('/:id', (req, res) => {
+  db.User.findByIdAndDelete(req.params.id)
+  .then(() => {
+    res.send('deleted')
+    res.status(204).send()
+  })
+})
+
 // POST /api/users/login (Public)
 router.post('/login', (req, res) => {
   const email = req.body.email.toLowerCase();
@@ -97,4 +105,11 @@ router.get('/', (req, res) => {
   })
 })
 
+router.get('/phoneNumber', (req, res) => {
+  const phoneNumber = req.body.phoneNumber
+  db.User.find({}, {phoneNumber:1, _id:0})
+  .then(user => {
+    res.send(user);
+  })
+})
 module.exports = router;
