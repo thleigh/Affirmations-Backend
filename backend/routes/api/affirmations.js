@@ -75,9 +75,24 @@ router.put('/likes/:id', (req, res) => {
     Affirmation.findOneAndUpdate({
         _id:req.params.id
     },
-    // req.body, // Grab everything in the body 
     {
         $push: {likes: req.body.likes}
+    },
+    {
+        new: true
+    })
+    .then(updatedAffirmation => {
+        return res.json(updatedAffirmation)
+    })
+    .catch(err => console.log(err))
+})
+
+router.delete('/likes/:id', (req,res) => {
+    Affirmation.findOneAndUpdate({
+        _id:req.params.id
+    },
+    {
+        $pull: {likes: req.body.likes}
     },
     {
         new: true
