@@ -106,8 +106,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/phoneNumber', (req, res) => {
-  const phoneNumber = req.body.phoneNumber
-  db.User.find({}, {phoneNumber:1, _id:0})
+  db.User.find({volunteer:true})
   .then(user => {
     res.send(user);
   })
