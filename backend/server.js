@@ -8,7 +8,7 @@ const passport = require('passport');
 
 const users = require('./routes/api/users');
 const affirmations = require('./routes/api/affirmations')
-
+const resources = require('./routes/api/resources')
 // MIDDLEWARE
 app.use(cors());
 app.use(express.urlencoded({extended: false}));
@@ -26,6 +26,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/users', users)
 app.use('/api/affirmations', affirmations)
+app.use('/api/resources', resources)
 
 // app.use('/motivational', require('./routes/api/affirmations-scrape'))
 

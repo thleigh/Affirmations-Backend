@@ -9,13 +9,13 @@ router.get('/',(req,res)=>{
     geocodingClient.forwardGeocode({
         query: `${req.query.city},${req.query.state}, ${req.query.poi}`
     })
-    .send()
+    // .send()
     .then(response=>{
         let match = response.body.features[0]
 
         console.log("match", match)
         console.log(match.center)
-        res.render('show',{match, mapKey:process.env.MAPBOX_TOKEN, city:req.query.city, state:req.query.state})
+        res.send({match, mapKey:process.env.MAPBOX_TOKEN, city:req.query.city, state:req.query.state})
     })
     .catch(err=>{
         console.log(err)
@@ -23,3 +23,5 @@ router.get('/',(req,res)=>{
     })
 
 })
+
+module.exports = router;
