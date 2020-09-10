@@ -87,6 +87,8 @@ router.put('/likes/:id', (req, res) => {
     .catch(err => console.log(err))
 })
 
+// PUT api/affirmations/unlikes/id
+// Remove a like
 router.put('/unlikes/:id', (req,res) => {
     Affirmation.findOneAndUpdate({
         _id:req.params.id
