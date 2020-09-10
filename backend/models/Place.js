@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const placeSchema = new Schema ({
   
-    city: {
+    City: {
         type: String
     },
     State: {
@@ -15,7 +15,7 @@ const placeSchema = new Schema ({
     Lat: {
         type: Number
     },
-    Log: {
+    Lng: {
         type: Number
     }
 })

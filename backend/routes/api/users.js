@@ -49,6 +49,7 @@ router.post('/register', (req, res) => {
   })
 });
 
+// DELETE api/users/id
 router.delete('/:id', (req, res) => {
   db.User.findByIdAndDelete(req.params.id)
   .then(() => {
@@ -105,6 +106,7 @@ router.get('/', (req, res) => {
   })
 })
 
+// GET api/users/phoneNumber
 router.get('/phoneNumber', (req, res) => {
   db.User.find({volunteer:true})
   .then(user => {
