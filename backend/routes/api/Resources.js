@@ -12,10 +12,12 @@ router.post('/',(req,res)=>{
     })
     .send()
     .then(response=>{
-        let match = response.body.features[0]
+        console.log('response.body', response.body)
+        // let match = response.body.features[0]
+        let match = response.body.features.slice(0, 6)
 
         console.log("match", match)
-        console.log(match.center)
+        // console.log(match.center)
         res.send({match, mapKey:process.env.MAPBOX_TOKEN, city:req.body.city, state:req.body.state})
     })
     .catch(err=>{
