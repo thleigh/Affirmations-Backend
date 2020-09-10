@@ -28,8 +28,6 @@ app.use('/api/users', users)
 app.use('/api/affirmations', affirmations)
 app.use('/api/resources', resources)
 
-// app.use('/motivational', require('./routes/api/affirmations-scrape'))
-
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });

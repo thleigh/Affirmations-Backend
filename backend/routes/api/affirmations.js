@@ -2,8 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const Affirmation = require('../../models/Affirmation');
-const db = require('../../models/');
-const { update } = require('../../models/Affirmation');
 
 // POST /api/affirmations
 // Post a new quote
@@ -22,7 +20,6 @@ router.post('/', (req, res) => {
 // GET /api/affirmations
 // Display all quotes
 router.get('/', (req, res) => {
-    // db.Affirmation.find() // This gives me error "cannot read 'find' as undefined"
     Affirmation.find()
     .then(affirmations => {
         res.send(affirmations)
@@ -58,8 +55,7 @@ router.put('/:id', (req, res) => {
     Affirmation.findOneAndUpdate({
         _id:req.params.id
     },
-    req.body, // Grab everything in the body 
-    
+    req.body, // Grab everything in the body     
     {
         new: true
     })
