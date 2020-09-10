@@ -82,12 +82,12 @@ router.put('/likes/:id', (req, res) => {
         new: true
     })
     .then(updatedAffirmation => {
-        return res.json(updatedAffirmation)
+        res.send(updatedAffirmation)
     })
     .catch(err => console.log(err))
 })
 
-router.delete('/likes/:id', (req,res) => {
+router.put('/unlikes/:id', (req,res) => {
     Affirmation.findOneAndUpdate({
         _id:req.params.id
     },
@@ -98,7 +98,7 @@ router.delete('/likes/:id', (req,res) => {
         new: true
     })
     .then(updatedAffirmation => {
-        return res.json(updatedAffirmation)
+        res.send(updatedAffirmation)
     })
     .catch(err => console.log(err))
 })
