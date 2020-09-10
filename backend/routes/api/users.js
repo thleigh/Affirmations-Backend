@@ -6,16 +6,13 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const JWT_SECRET = process.env.JWT_SECRET;
+
 // Load User model
 const User = require('../../models/User');
 const db = require('../../models');
 
-// GET api/users/test (Public)
-router.get('/test', (req, res) => {
-  res.json({ msg: 'User endpoint OK'});
-});
 
-// POST api/users/register (Public)
+// POST api/users/register
 router.post('/register', (req, res) => {
   
   // Find user by email
@@ -49,16 +46,7 @@ router.post('/register', (req, res) => {
   })
 });
 
-// DELETE api/users/id
-router.delete('/:id', (req, res) => {
-  db.User.findByIdAndDelete(req.params.id)
-  .then(() => {
-    res.send('deleted')
-    res.status(204).send()
-  })
-})
-
-// POST /api/users/login (Public)
+// POST /api/users/login
 router.post('/login', (req, res) => {
   const email = req.body.email.toLowerCase();
   const password = req.body.password;
@@ -103,6 +91,15 @@ router.get('/', (req, res) => {
   })
   .catch(err => {
     console.log(err);
+  })
+})
+
+// DELETE api/users/id
+router.delete('/:id', (req, res) => {
+  db.User.findByIdAndDelete(req.params.id)
+  .then(() => {
+    res.send('deleted')
+    res.status(204).send()
   })
 })
 

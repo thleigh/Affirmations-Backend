@@ -21,12 +21,6 @@ const UserSchema = new Schema({
     },
     phoneNumber: {
         type: String
-    },
-    location: {
-        type: String
-    },
-    mood: {
-        type: Number
     }
 });
 
