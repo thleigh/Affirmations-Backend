@@ -5,23 +5,23 @@ const router = express.Router();
 const mbxGeocoding= require('@mapbox/mapbox-sdk/services/geocoding')
 const geocodingClient = mbxGeocoding({accessToken: process.env.MAPBOX_TOKEN})
 
-router.get('/',(req,res)=>{
+router.post('/',(req,res)=>{
+    console.log(`HERES THE QUERY INFO${req.body.city},${req.body.state}, ${req.body.poi}`)
     geocodingClient.forwardGeocode({
-        query: `${req.query.city},${req.query.state}, ${req.query.poi}`
+        query: `${req.body.city},${req.body.state}, ${req.body.poi}`
     })
-    // .send()
+    .send()
     .then(response=>{
         let match = response.body.features[0]
 
         console.log("match", match)
         console.log(match.center)
-        res.send({match, mapKey:process.env.MAPBOX_TOKEN, city:req.query.city, state:req.query.state})
+        res.send({match, mapKey:process.env.MAPBOX_TOKEN, city:req.body.city, state:req.body.state})
     })
     .catch(err=>{
         console.log(err)
         res.send('Error',err)
     })
-
 })
 
 module.exports = router;
