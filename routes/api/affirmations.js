@@ -101,4 +101,6 @@ router.put('/unlikes/:id', (req,res) => {
     .catch(err => console.log(err))
 })
 
+console.log('listening')
+
 module.exports = router
