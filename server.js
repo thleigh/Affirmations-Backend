@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/users', users)
 app.use('/api/affirmations', affirmations)
-// app.use('/api/resources', require('./routes/api/resources'))
+app.use('/api/info', require('./routes/api/info'))
 
 app.listen(port, () => {
     console.log(`👀 🥁 Server is running on port: ${port}`);
